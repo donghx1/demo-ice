@@ -1,23 +1,25 @@
 
 
 server: server.o Hello.o HelloI.o
-	g++ -g server.o HelloI.o Hello.o -lIce -lpthread -o server
+	g++ -O0 server.o HelloI.o Hello.o -lIce -lpthread -o server
 
 client: client.o Hello.o HelloI.o
-	g++ -g client.o HelloI.o Hello.o -lIce -lpthread -o client
+	g++ -O0 client.o HelloI.o Hello.o -lIce -lpthread -o client
 
 
 
 server.o: server.cpp 
-	g++ -I. -c server.cpp -o server.o 
-client.o: client.cpp
-	g++ -I. -c client.cpp -o client.o 
+	g++ -I. -g -c server.cpp -o server.o 
 
-Hello.o: Hello.cpp  Hello.h
-	g++ -I. -c Hello.cpp -o Hello.o 
+client.o: client.cpp
+	g++ -I. -g -c client.cpp -o client.o 
 
 HelloI.o: HelloI.cpp  HelloI.h
-	g++ -I. -c HelloI.cpp -o HelloI.o 
+	g++ -I. -g -c HelloI.cpp -o HelloI.o 
+
+Hello.o: Hello.cpp  Hello.h
+	g++ -I. -g -c Hello.cpp -o Hello.o 
+
 
 
 clean:

@@ -8,7 +8,6 @@ using namespace std;
 
 class HelloI : public Demo::Hello
 {
-
 public:
 
     virtual string SayHello(const string&, const Ice::Current&);
