@@ -23,4 +23,4 @@ Hello.o: Hello.cpp  Hello.h
 
 
 clean:
-	rm *.o server client
+	rm -rf *.o server client
